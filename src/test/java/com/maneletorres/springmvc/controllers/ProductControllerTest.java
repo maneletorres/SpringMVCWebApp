@@ -76,7 +76,7 @@ public class ProductControllerTest {
     @Test
     public void testNewProduct() throws Exception {
         // Should not call service.
-        verifyNoInteractions (productService);
+        verifyNoInteractions(productService);
 
         mockMvc.perform(get("/product/new"))
                 .andExpect(status().isOk())
@@ -108,7 +108,6 @@ public class ProductControllerTest {
                 .andExpect(view().name("redirect:product/show/1"))
                 .andExpect(model().attribute("product", instanceOf(Product.class)))
                 .andExpect(model().attribute("product", hasProperty("id", is(id))))
-                .andExpect(model().attribute("product", hasProperty("id", is(id))))
                 .andExpect(model().attribute("product", hasProperty("description", is(description))))
                 .andExpect(model().attribute("product", hasProperty("price", is(price))))
                 .andExpect(model().attribute("product", hasProperty("imageUrl", is(imageUrl))));
@@ -124,7 +123,7 @@ public class ProductControllerTest {
     }
 
     @Test
-    public void delete() throws Exception {
+    public void testDelete() throws Exception {
         Integer id = 1;
 
         mockMvc.perform(get("/product/delete/1"))
