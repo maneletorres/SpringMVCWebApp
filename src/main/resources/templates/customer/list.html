@@ -2,18 +2,18 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Spring Core Online Tutorial - List Customers</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
 
     <link href="http://cdn.jsdelivr.net/webjars/bootstrap/4.5.0/css/bootstrap.min.css"
-          th:href="@{/webjars/bootstrap/4.5.0/css/bootstrap.min.css}"
-          rel="stylesheet" media="screen" />
+          media="screen"
+          rel="stylesheet" th:href="@{/webjars/bootstrap/4.5.0/css/bootstrap.min.css}"/>
 
     <script src="http://cdn.jsdelivr.net/webjars/jquery/3.5.1/jquery.min.js"
             th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"></script>
 
     <link href="../static/css/spring-core.css"
-          th:href="@{css/spring-core.css}"
-          rel="stylesheet" media="screen" />
+          media="screen"
+          rel="stylesheet" th:href="@{css/spring-core.css}"/>
 </head>
 
 <body>
@@ -45,15 +45,15 @@
                 <td th:text="${customer.city}"></td>
                 <td th:text="${customer.state}"></td>
                 <td th:text="${customer.zipCode}"></td>
-                <td><a th:href="${'/customer/show/' + customer.id}">View</a> </td>
-                <td><a th:href="${'/customer/edit/' + customer.id}">Edit</a> </td>
-                <td><a th:href="${'/customer/delete/' + customer.id}">Delete</a> </td>
+                <td><a th:href="${'/customer/show/' + customer.id}">View</a></td>
+                <td><a th:href="${'/customer/edit/' + customer.id}">Edit</a></td>
+                <td><a th:href="${'/customer/delete/' + customer.id}">Delete</a></td>
             </tr>
         </table>
     </div>
 
     <div class="row">
-        <div class="col-sm-3"><a href="/customer/new">New Customer</a> </div>
+        <div class="col-sm-3"><a href="/customer/new">New Customer</a></div>
     </div>
 </div>
 </body>

@@ -1,7 +1,7 @@
 package com.maneletorres.springmvc.controllers;
 
+import com.maneletorres.springmvc.domain.Customer;
 import com.maneletorres.springmvc.services.CustomerService;
-import domain.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

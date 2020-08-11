@@ -1,10 +1,11 @@
 package com.maneletorres.springmvc.services;
 
-import domain.Customer;
-import domain.DomainObject;
+import com.maneletorres.springmvc.domain.Customer;
+import com.maneletorres.springmvc.domain.DomainObject;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
 
 @Service
 public class CustomerServiceImpl extends AbstractMapService implements CustomerService {

@@ -1,13 +1,15 @@
 package com.maneletorres.springmvc.services;
 
-import domain.DomainObject;
-import domain.Product;
+import com.maneletorres.springmvc.domain.DomainObject;
+import com.maneletorres.springmvc.domain.Product;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
 
 @Service
+@Profile("map")
 public class ProductServiceImpl extends AbstractMapService implements ProductService {
 
     @Override

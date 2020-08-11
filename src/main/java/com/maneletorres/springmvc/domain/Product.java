@@ -1,7 +1,14 @@
-package domain;
+package com.maneletorres.springmvc.domain;
 
+import javax.persistence.*;
+
+@Entity
 public class Product implements DomainObject {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+    @Version
+    private Integer version;
     private String description;
     private double price;
     private String imageUrl;
@@ -12,6 +19,14 @@ public class Product implements DomainObject {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Integer getVersion() {
+        return version;
+    }
+
+    public void setVersion(Integer version) {
+        this.version = version;
     }
 
     public String getDescription() {

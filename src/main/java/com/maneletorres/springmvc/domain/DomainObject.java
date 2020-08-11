@@ -1,4 +1,4 @@
-package domain;
+package com.maneletorres.springmvc.domain;
 
 public interface DomainObject {
 

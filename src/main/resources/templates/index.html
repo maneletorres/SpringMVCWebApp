@@ -3,31 +3,31 @@
 <head lang="en">
 
     <title>Spring Core Online Tutorial</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
 
     <link href="http://cdn.jsdelivr.net/webjars/bootstrap/4.5.0/css/bootstrap.min.css"
-          th:href="@{/webjars/bootstrap/4.5.0/css/bootstrap.min.css}"
-          rel="stylesheet" media="screen" />
+          media="screen"
+          rel="stylesheet" th:href="@{/webjars/bootstrap/4.5.0/css/bootstrap.min.css}"/>
 
     <script src="http://cdn.jsdelivr.net/webjars/jquery/3.5.1/jquery.min.js"
             th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"></script>
 
     <link href="../static/css/spring-core.css"
-          th:href="@{css/spring-core.css}"
-          rel="stylesheet" media="screen" />
+          media="screen"
+          rel="stylesheet" th:href="@{css/spring-core.css}"/>
 </head>
 <body>
 
-    <div class="container">
-        <h1>Hello World</h1>
+<div class="container">
+    <h1>Hello World</h1>
 
-        <h2>This is my Thymeleaf index page.</h2>
+    <h2>This is my Thymeleaf index page.</h2>
 
-        <ul>
-            <li><a href="product/list">Products</a></li>
-            <li><a href="customer/list">Customers</a></li>
-        </ul>
-    </div>
+    <ul>
+        <li><a href="product/list">Products</a></li>
+        <li><a href="customer/list">Customers</a></li>
+    </ul>
+</div>
 
 </body>
 </html>

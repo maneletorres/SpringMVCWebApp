@@ -1,7 +1,7 @@
 package com.maneletorres.springmvc.controllers;
 
+import com.maneletorres.springmvc.domain.Customer;
 import com.maneletorres.springmvc.services.CustomerService;
-import domain.Customer;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.*;

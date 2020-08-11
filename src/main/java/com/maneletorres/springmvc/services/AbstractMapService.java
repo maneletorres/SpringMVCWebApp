@@ -1,6 +1,6 @@
 package com.maneletorres.springmvc.services;
 
-import domain.DomainObject;
+import com.maneletorres.springmvc.domain.DomainObject;
 
 import java.util.*;
 
