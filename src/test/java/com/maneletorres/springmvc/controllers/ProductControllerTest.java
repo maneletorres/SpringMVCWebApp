@@ -2,6 +2,7 @@ package com.maneletorres.springmvc.controllers;
 
 import com.maneletorres.springmvc.domain.Product;
 import com.maneletorres.springmvc.services.ProductService;
+import com.maneletorres.springmvc.services.ProductServiceJapDaoImplTest;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.*;
