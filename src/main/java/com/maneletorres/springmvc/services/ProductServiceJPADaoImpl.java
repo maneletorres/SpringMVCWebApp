@@ -6,12 +6,13 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceUnit;
 import java.util.List;
 
 @Service
 @Profile("jpadao")
-public class ProductServiceJapDaoImpl implements ProductService {
+public class ProductServiceJPADaoImpl implements ProductService {
     private EntityManagerFactory emf;
 
     @PersistenceUnit // This annotation forms part of JPA Standard. Dependency injection.

@@ -19,10 +19,12 @@ public class Customer implements DomainObject {
     private String state;
     private String zipCode;
 
+    @Override
     public Integer getId() {
         return id;
     }
 
+    @Override
     public void setId(Integer id) {
         this.id = id;
     }
