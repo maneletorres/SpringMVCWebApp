@@ -1,40 +1,29 @@
 package com.maneletorres.springmvc.domain;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 
 @Entity
-public class Customer implements DomainObject {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
-    @Version
-    private Integer version;
+public class Customer extends AbstractDomainClass {
     private String firstName;
     private String lastName;
     private String email;
     private String phoneNumber;
-    private String addressLineOne;
-    private String addressLineTwo;
-    private String city;
-    private String state;
-    private String zipCode;
+
+    @Embedded
+    private Address billingAddress;
+
+    @Embedded
+    private Address shippingAddress;
+
+    @OneToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    private User user;
 
     @Override
     public Integer getId() {
         return id;
-    }
-
-    @Override
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Integer getVersion() {
-        return version;
-    }
-
-    public void setVersion(Integer version) {
-        this.version = version;
     }
 
     public String getFirstName() {
@@ -69,43 +58,27 @@ public class Customer implements DomainObject {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getAddressLineOne() {
-        return addressLineOne;
+    public Address getBillingAddress() {
+        return billingAddress;
     }
 
-    public void setAddressLineOne(String addressLineOne) {
-        this.addressLineOne = addressLineOne;
+    public void setBillingAddress(Address billingAddress) {
+        this.billingAddress = billingAddress;
     }
 
-    public String getAddressLineTwo() {
-        return addressLineTwo;
+    public Address getShippingAddress() {
+        return shippingAddress;
     }
 
-    public void setAddressLineTwo(String addressLineTwo) {
-        this.addressLineTwo = addressLineTwo;
+    public void setShippingAddress(Address shippingAddress) {
+        this.shippingAddress = shippingAddress;
     }
 
-    public String getCity() {
-        return city;
+    public User getUser() {
+        return user;
     }
 
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
-    }
-
-    public String getZipCode() {
-        return zipCode;
-    }
-
-    public void setZipCode(String zipCode) {
-        this.zipCode = zipCode;
+    public void setUser(User user) {
+        this.user = user;
     }
 }

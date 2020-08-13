@@ -1,7 +1,8 @@
-package com.maneletorres.springmvc.services;
+package com.maneletorres.springmvc.services.mapservices;
 
 import com.maneletorres.springmvc.domain.DomainObject;
 import com.maneletorres.springmvc.domain.Product;
+import com.maneletorres.springmvc.services.ProductService;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 

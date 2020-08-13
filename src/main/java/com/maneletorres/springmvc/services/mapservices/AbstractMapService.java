@@ -1,4 +1,4 @@
-package com.maneletorres.springmvc.services;
+package com.maneletorres.springmvc.services.mapservices;
 
 import com.maneletorres.springmvc.domain.DomainObject;
 
@@ -35,7 +35,6 @@ public abstract class AbstractMapService {
     }
 
     private Integer getNextKey() {
-        if (domainMap.size() == 0) return 1;
         return Collections.max(domainMap.keySet()) + 1;
     }
 }

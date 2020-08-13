@@ -1,25 +1,16 @@
-package com.maneletorres.springmvc.services;
+package com.maneletorres.springmvc.services.jpaservices;
 
 import com.maneletorres.springmvc.domain.Product;
+import com.maneletorres.springmvc.services.ProductService;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.PersistenceContext;
-import javax.persistence.PersistenceUnit;
 import java.util.List;
 
 @Service
 @Profile("jpadao")
-public class ProductServiceJPADaoImpl implements ProductService {
-    private EntityManagerFactory emf;
-
-    @PersistenceUnit // This annotation forms part of JPA Standard. Dependency injection.
-    public void setEmf(EntityManagerFactory emf) {
-        this.emf = emf;
-    }
-
+public class ProductServiceJPADaoImpl extends AbstractJPADaoService implements ProductService {
     @Override
     public List<Product> listAll() {
         EntityManager em = emf.createEntityManager();
