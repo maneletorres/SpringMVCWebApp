@@ -10,7 +10,7 @@ import java.util.List;
 
 @Service
 @Profile("map")
-public class CustomerServiceImpl extends AbstractMapService implements CustomerService {
+public class CustomerServiceMapImpl extends AbstractMapService implements CustomerService {
 
     @Override
     public List<DomainObject> listAll() {

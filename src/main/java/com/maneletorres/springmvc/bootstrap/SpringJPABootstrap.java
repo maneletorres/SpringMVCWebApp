@@ -1,8 +1,10 @@
 package com.maneletorres.springmvc.bootstrap;
 
 import com.maneletorres.springmvc.domain.*;
+import com.maneletorres.springmvc.domain.security.Role;
 import com.maneletorres.springmvc.enums.OrderStatus;
 import com.maneletorres.springmvc.services.ProductService;
+import com.maneletorres.springmvc.services.RoleService;
 import com.maneletorres.springmvc.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
@@ -15,6 +17,7 @@ import java.util.List;
 public class SpringJPABootstrap implements ApplicationListener<ContextRefreshedEvent> {
     private ProductService productService;
     private UserService userService;
+    private RoleService roleService;
 
     @Autowired
     public void setProductService(ProductService productService) {
@@ -26,12 +29,19 @@ public class SpringJPABootstrap implements ApplicationListener<ContextRefreshedE
         this.userService = userService;
     }
 
+    @Autowired
+    public void setRoleService(RoleService roleService) {
+        this.roleService = roleService;
+    }
+
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
         loadProducts();
         loadUsersAndCustomers();
         loadCarts();
         loadOrderHistory();
+        loadRoles();
+        assignUsersToDefaultRole();
     }
 
     public void loadOrderHistory() {
@@ -157,5 +167,25 @@ public class SpringJPABootstrap implements ApplicationListener<ContextRefreshedE
         customer3.getBillingAddress().setZipCode("33101");
         user3.setCustomer(customer3);
         userService.saveOrUpdate(user3);
+    }
+
+    public void loadRoles() {
+        Role role = new Role();
+        role.setRole("CUSTOMER");
+        roleService.saveOrUpdate(role);
+    }
+
+    public void assignUsersToDefaultRole() {
+        List<Role> roles = (List<Role>) roleService.listAll();
+        List<User> users = (List<User>) userService.listAll();
+
+        roles.forEach(role -> {
+            if (role.getRole().equalsIgnoreCase("CUSTOMER")) {
+                users.forEach(user -> {
+                    user.addRole(role);
+                    userService.saveOrUpdate(user);
+                });
+            }
+        });
     }
 }

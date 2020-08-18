@@ -21,7 +21,7 @@ public class Order extends AbstractDomainClass {
     private Date dateShipped;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "order", orphanRemoval = true)
-    private List<OrderDetail> orderLines = new ArrayList<>();
+    private List<OrderDetail> orderDetails = new ArrayList<>();
 
     public Customer getCustomer() {
         return customer;
@@ -39,28 +39,20 @@ public class Order extends AbstractDomainClass {
         this.shipToAddress = shipToAddress;
     }
 
+    public List<OrderDetail> getOrderDetails() {
+        return orderDetails;
+    }
+
+    public void setOrderDetails(List<OrderDetail> orderDetails) {
+        this.orderDetails = orderDetails;
+    }
+
     public OrderStatus getOrderStatus() {
         return orderStatus;
     }
 
     public void setOrderStatus(OrderStatus orderStatus) {
         this.orderStatus = orderStatus;
-    }
-
-    public List<OrderDetail> getOrderLines() {
-        return orderLines;
-    }
-
-    public void setOrderLines(List<OrderDetail> orderLines) {
-        this.orderLines = orderLines;
-    }
-
-    public List<OrderDetail> getOrders() {
-        return orderLines;
-    }
-
-    public void setOrders(List<OrderDetail> orders) {
-        this.orderLines = orders;
     }
 
     public Date getDateShipped() {
@@ -73,11 +65,11 @@ public class Order extends AbstractDomainClass {
 
     public void addToOrderDetails(OrderDetail orderDetail) {
         orderDetail.setOrder(this);
-        orderLines.add(orderDetail);
+        orderDetails.add(orderDetail);
     }
 
     public void removeOrderDetail(OrderDetail orderDetail) {
         orderDetail.setOrder(null);
-        this.orderLines.remove(orderDetail);
+        orderDetails.remove(orderDetail);
     }
 }

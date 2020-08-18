@@ -21,22 +21,15 @@ public class UserServiceJPADaoImpl extends AbstractJPADaoService implements User
     }
 
     @Override
-    public List<?> listAll() {
+    public List<User> listAll() {
         EntityManager em = emf.createEntityManager();
-
-        List<User> users = em.createQuery("from User", User.class).getResultList();
-        em.close();
-
-        return users;
+        return em.createQuery("from User", User.class).getResultList();
     }
 
     @Override
     public User getById(Integer id) {
         EntityManager em = emf.createEntityManager();
-        User user = em.find(User.class, id);
-        em.close();
-
-        return user;
+        return em.find(User.class, id);
     }
 
     @Override
@@ -51,7 +44,6 @@ public class UserServiceJPADaoImpl extends AbstractJPADaoService implements User
 
         User savedUser = em.merge(domainObject); // Creates a new object that doesn't exist or merge the properties of that object if it does exist.
         em.getTransaction().commit();
-        em.close();
 
         return savedUser;
     }
@@ -63,6 +55,5 @@ public class UserServiceJPADaoImpl extends AbstractJPADaoService implements User
         em.getTransaction().begin();
         em.remove(em.find(User.class, id));
         em.getTransaction().commit();
-        em.close();
     }
 }

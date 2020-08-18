@@ -14,20 +14,13 @@ public class ProductServiceJPADaoImpl extends AbstractJPADaoService implements P
     @Override
     public List<Product> listAll() {
         EntityManager em = emf.createEntityManager();
-
-        List<Product> products = em.createQuery("from Product", Product.class).getResultList();
-        em.close();
-
-        return products;
+        return em.createQuery("from Product", Product.class).getResultList();
     }
 
     @Override
     public Product getById(Integer id) {
         EntityManager em = emf.createEntityManager();
-        Product product = em.find(Product.class, id);
-        em.close();
-
-        return product;
+        return em.find(Product.class, id);
     }
 
     @Override
@@ -38,7 +31,6 @@ public class ProductServiceJPADaoImpl extends AbstractJPADaoService implements P
 
         Product savedProduct = em.merge(domainObject); // Creates a new object that doesn't exist or merge the properties of that object if it does exist.
         em.getTransaction().commit();
-        em.close();
 
         return savedProduct;
     }
@@ -50,6 +42,5 @@ public class ProductServiceJPADaoImpl extends AbstractJPADaoService implements P
         em.getTransaction().begin();
         em.remove(em.find(Product.class, id));
         em.getTransaction().commit();
-        em.close();
     }
 }

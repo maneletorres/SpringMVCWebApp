@@ -1,8 +1,8 @@
 package com.maneletorres.springmvc.services.mapservices;
 
 import com.maneletorres.springmvc.domain.DomainObject;
-import com.maneletorres.springmvc.domain.Product;
-import com.maneletorres.springmvc.services.ProductService;
+import com.maneletorres.springmvc.domain.User;
+import com.maneletorres.springmvc.services.UserService;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
@@ -10,21 +10,20 @@ import java.util.List;
 
 @Service
 @Profile("map")
-public class ProductServiceImpl extends AbstractMapService implements ProductService {
-
+public class UserServiceMapImpl extends AbstractMapService implements UserService {
     @Override
     public List<DomainObject> listAll() {
         return super.listAll();
     }
 
     @Override
-    public Product getById(Integer id) {
-        return (Product) super.getById(id);
+    public User getById(Integer id) {
+        return (User) super.getById(id);
     }
 
     @Override
-    public Product saveOrUpdate(Product domainObject) {
-        return (Product) super.saveOrUpdate(domainObject);
+    public User saveOrUpdate(User domainObject) {
+        return (User) super.saveOrUpdate(domainObject);
     }
 
     @Override
